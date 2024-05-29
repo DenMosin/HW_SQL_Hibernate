@@ -2,27 +2,19 @@ package ru.netology.javadata_4_hibernate.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
+import javax.persistence.*;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "persons")
 @Entity
-public class Person implements Serializable {
-    @Id
-    private String name;
-    @Id
-    private String surname;
-    @Id
-    private int age;
-    private String phone_number;
-    private String city_of_living;
+public class Person  {
+
+        @Column(nullable = false, name = "phone_number", unique = true)
+        private String phoneNumber;
+        @Column(nullable = false, name = "city_of_living")
+        private String cityOfLiving;
 }
